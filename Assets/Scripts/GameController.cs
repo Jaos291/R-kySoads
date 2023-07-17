@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private GameObject _plane;
+    public static GameController Instance;
 
-    [SerializeField] private GameObject _playerPrefab;
+
+
+
+    //------------------
+
+    public bool CanPlay;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 }

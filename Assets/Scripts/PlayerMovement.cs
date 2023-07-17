@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float x;
 
+    [HideInInspector] public bool isGrounded = true;
 
     private void Start()
     {
@@ -31,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             _rb.AddForce(new Vector2(_rb.velocity.x, jumpForce));
         }

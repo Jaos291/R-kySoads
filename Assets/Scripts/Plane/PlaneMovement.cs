@@ -1,19 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlaneMovement : MonoBehaviour
 {
-    public float _planeSpeed;
+    public float planeSpeed;
 
-    private Rigidbody _rb;
+    private const float _SPEED_CHANGER_AMOUNT = 1.25f;
 
-    private void Start()
+    private float y;
+
+    private void Update()
     {
-        _rb.GetComponent<Rigidbody>();
+        transform.Translate(Vector3.back * planeSpeed * Time.fixedDeltaTime);
+
+        ChangeSetSpeed();
     }
-    private void FixedUpdate()
+
+    public void ChangeSetSpeed()
     {
-        //_rb.velocity = new Vector3(_rb.velocity.x, _rb.velocity.x, _planeSpeed);
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            planeSpeed += _SPEED_CHANGER_AMOUNT;
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            planeSpeed -= _SPEED_CHANGER_AMOUNT;
+
+            if (planeSpeed < 0)
+            {
+                planeSpeed = 0;
+            }
+        }
     }
 }
