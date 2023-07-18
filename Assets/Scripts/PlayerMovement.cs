@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            _rb.AddForce(new Vector2(_rb.velocity.x, jumpForce));
+            _rb.AddForce(new Vector2(_rb.velocity.x, jumpForce), ForceMode.Impulse);
         }
     }
 }
