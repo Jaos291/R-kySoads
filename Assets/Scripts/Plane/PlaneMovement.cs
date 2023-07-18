@@ -8,7 +8,7 @@ public class PlaneMovement : MonoBehaviour
 {
     public float planeSpeed;
 
-    private const float _SPEED_CHANGER_AMOUNT = 1.25f;
+    [SerializeField] private float _speedChangerAmount = 1.25f;
 
     private float y;
 
@@ -23,12 +23,12 @@ public class PlaneMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            planeSpeed += _SPEED_CHANGER_AMOUNT;
+            planeSpeed += _speedChangerAmount;
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            planeSpeed -= _SPEED_CHANGER_AMOUNT;
+            planeSpeed -= _speedChangerAmount;
 
             if (planeSpeed < 0)
             {
