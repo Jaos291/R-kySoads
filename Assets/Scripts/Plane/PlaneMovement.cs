@@ -23,17 +23,27 @@ public class PlaneMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            planeSpeed += _speedChangerAmount;
+            MoreSpeed(_speedChangerAmount);
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            planeSpeed -= _speedChangerAmount;
+            LessSpeed(_speedChangerAmount);
+        }
+    }
 
-            if (planeSpeed < 0)
-            {
-                planeSpeed = 0;
-            }
+    public void MoreSpeed(float speedChanger)
+    {
+        planeSpeed += speedChanger;
+    }
+
+    public void LessSpeed(float speedChanger)
+    {
+        planeSpeed -= speedChanger;
+
+        if (planeSpeed < 0)
+        {
+            planeSpeed = 0;
         }
     }
 }
