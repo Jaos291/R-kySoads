@@ -25,12 +25,15 @@ public class CollisionController : MonoBehaviour
             else if (!_destroyer && _endOfGame)
             {
                 Debug.Log("EndGame!");
+
             }else if (_destroyer)
             {
-                Destroy(collision.gameObject);
+                GameController.Instance.PlayerDied();
+
             }else if (_oxygenBurner)
             {
                 Debug.Log("Oxygen Depleting!");
+
             }else if (_slower)
             {
                 Debug.Log("Slowing!");

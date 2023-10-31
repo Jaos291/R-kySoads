@@ -20,8 +20,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        Move();
-        Jump();
+        if (GameController.Instance.CanPlay)
+        {
+            Move();
+            Jump();
+        }
     }
 
     private void Move()

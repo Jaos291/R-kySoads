@@ -14,21 +14,27 @@ public class PlaneMovement : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(Vector3.back * planeSpeed * Time.fixedDeltaTime);
+        if (GameController.Instance.CanPlay)
+        {
+            transform.Translate(Vector3.back * planeSpeed * Time.fixedDeltaTime);
 
-        ChangeSetSpeed();
+            ChangeSetSpeed();
+        }
     }
 
     public void ChangeSetSpeed()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (!Application.platform.Equals(RuntimePlatform.Android))
         {
-            MoreSpeed(_speedChangerAmount);
-        }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                MoreSpeed(_speedChangerAmount);
+            }
 
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            LessSpeed(_speedChangerAmount);
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                LessSpeed(_speedChangerAmount);
+            }
         }
     }
 
