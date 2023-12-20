@@ -44,13 +44,14 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void PlayerDied()
+    public void PlayerDied(GameObject player)
     {
-        DestroyImmediate(_player, true);
+        player.gameObject.SetActive(false);
     }
 
     public void FadeAway()
     {
         _fade.SetActive(true);
     }
+
 }

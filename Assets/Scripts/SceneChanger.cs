@@ -17,6 +17,6 @@ public class SceneChanger : MonoBehaviour
     {
         _fade.SetActive(true);
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene(sceneToChange, LoadSceneMode.Single);
+        Loader.Load(sceneToChange);
     }
 }

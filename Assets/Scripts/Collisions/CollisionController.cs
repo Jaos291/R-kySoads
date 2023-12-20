@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CollisionController : MonoBehaviour
 {
+    [SerializeField] private GameObject _VictoryCanvas;
+
     [SerializeField] private string _tagToCompare;
 
     [SerializeField] private bool _destroyer;
@@ -13,6 +15,24 @@ public class CollisionController : MonoBehaviour
     [SerializeField] private bool _oxygenBurner;
 
     [SerializeField] private bool _slower;
+
+    private enum State
+    {
+        Normal,
+        Slowed,
+        OxygenDepleting,
+    }
+
+    private void Awake()
+    {
+        if (_VictoryCanvas)
+        {
+            if (_VictoryCanvas.activeSelf)
+            {
+                _VictoryCanvas.SetActive(false);
+            }
+        }
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -24,11 +44,12 @@ public class CollisionController : MonoBehaviour
             }
             else if (!_destroyer && _endOfGame)
             {
-                Debug.Log("EndGame!");
-
-            }else if (_destroyer)
+                VictoryState();
+                GameController.Instance.PlayerDied(collision.gameObject);
+            }
+            else if (_destroyer)
             {
-                GameController.Instance.PlayerDied();
+                GameController.Instance.PlayerDied(collision.gameObject);
 
             }else if (_oxygenBurner)
             {
@@ -39,5 +60,17 @@ public class CollisionController : MonoBehaviour
                 Debug.Log("Slowing!");
             }
         }
+    }
+
+    private void VictoryState()
+    {
+        StartCoroutine(ReturnToStageSelect());
+    }
+
+    IEnumerator ReturnToStageSelect()
+    {
+        _VictoryCanvas.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        this.GetComponent<SceneChanger>().FadeToScene("StageSelect");
     }
 }
