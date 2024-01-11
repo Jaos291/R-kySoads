@@ -6,6 +6,8 @@ public class CollisionController : MonoBehaviour
 {
     [SerializeField] private GameObject _VictoryCanvas;
 
+    [SerializeField] private GameObject _LostCanvas;
+
     [SerializeField] private string _tagToCompare;
 
     [SerializeField] private bool _destroyer;
@@ -50,8 +52,10 @@ public class CollisionController : MonoBehaviour
             else if (_destroyer)
             {
                 GameController.Instance.PlayerDied(collision.gameObject);
+                LostState();
 
-            }else if (_oxygenBurner)
+            }
+            else if (_oxygenBurner)
             {
                 Debug.Log("Oxygen Depleting!");
 
@@ -64,13 +68,27 @@ public class CollisionController : MonoBehaviour
 
     private void VictoryState()
     {
-        StartCoroutine(ReturnToStageSelect());
+        //StartCoroutine(ReturnToStageSelectForWinning());
+        GameController.Instance.VictoryState();
     }
 
-    IEnumerator ReturnToStageSelect()
+    private void LostState()
+    {
+        //StartCoroutine(ReturnToStageSelectForLosing());
+        GameController.Instance.LostState();
+    }
+
+    /*IEnumerator ReturnToStageSelectForWinning()
     {
         _VictoryCanvas.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         this.GetComponent<SceneChanger>().FadeToScene("StageSelect");
     }
+
+    IEnumerator ReturnToStageSelectForLosing()
+    {
+        _LostCanvas.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        this.GetComponent<SceneChanger>().FadeToScene("StageSelect");
+    }*/
 }

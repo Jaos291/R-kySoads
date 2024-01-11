@@ -21,6 +21,10 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private GameObject _fade;
 
+    [SerializeField] private GameObject _VictoryCanvas;
+
+    [SerializeField] private GameObject _LostCanvas;
+
 
     private void Awake()
     {
@@ -52,6 +56,30 @@ public class GameController : MonoBehaviour
     public void FadeAway()
     {
         _fade.SetActive(true);
+    }
+
+    public void VictoryState()
+    {
+        StartCoroutine(ReturnToStageSelectForWinning());
+    }
+
+    public void LostState()
+    {
+        StartCoroutine(ReturnToStageSelectForLosing());
+    }
+
+    IEnumerator ReturnToStageSelectForWinning()
+    {
+        _VictoryCanvas.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        this.GetComponent<SceneChanger>().FadeToScene("StageSelect");
+    }
+
+    IEnumerator ReturnToStageSelectForLosing()
+    {
+        _LostCanvas.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        this.GetComponent<SceneChanger>().FadeToScene("StageSelect");
     }
 
 }
