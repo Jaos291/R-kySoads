@@ -25,6 +25,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private GameObject _LostCanvas;
 
+    public GameObject explotion;
+
 
     private void Awake()
     {
@@ -48,9 +50,18 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void PlayerDied(GameObject player)
+    public void PlayerDied(GameObject player, bool winner)
     {
-        player.gameObject.SetActive(false);
+        if (!winner)
+        {
+            GameObject explosive = Instantiate(explotion, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), Quaternion.identity);
+            //explosive.SetActive(true);
+            player.gameObject.SetActive(false);
+        }
+        else
+        {
+            player.gameObject.SetActive(false);
+        }
     }
 
     public void FadeAway()

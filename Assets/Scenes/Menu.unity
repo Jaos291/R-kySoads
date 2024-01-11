@@ -316,7 +316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: R'ky Soads V1
+  m_text: GALAXY ROADS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4e21d5df0e1e7d946a9b822b7d788897, type: 2}
   m_sharedMaterial: {fileID: 7311239270958837348, guid: 4e21d5df0e1e7d946a9b822b7d788897, type: 2}

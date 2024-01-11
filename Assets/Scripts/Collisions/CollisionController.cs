@@ -47,12 +47,12 @@ public class CollisionController : MonoBehaviour
             else if (!_destroyer && _endOfGame)
             {
                 VictoryState();
-                GameController.Instance.PlayerDied(collision.gameObject);
+                GameController.Instance.PlayerDied(collision.gameObject,true);
             }
             else if (_destroyer)
             {
-                GameController.Instance.PlayerDied(collision.gameObject);
                 LostState();
+                GameController.Instance.PlayerDied(collision.gameObject,false);
 
             }
             else if (_oxygenBurner)
@@ -68,27 +68,11 @@ public class CollisionController : MonoBehaviour
 
     private void VictoryState()
     {
-        //StartCoroutine(ReturnToStageSelectForWinning());
         GameController.Instance.VictoryState();
     }
 
     private void LostState()
     {
-        //StartCoroutine(ReturnToStageSelectForLosing());
         GameController.Instance.LostState();
     }
-
-    /*IEnumerator ReturnToStageSelectForWinning()
-    {
-        _VictoryCanvas.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
-        this.GetComponent<SceneChanger>().FadeToScene("StageSelect");
-    }
-
-    IEnumerator ReturnToStageSelectForLosing()
-    {
-        _LostCanvas.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
-        this.GetComponent<SceneChanger>().FadeToScene("StageSelect");
-    }*/
 }

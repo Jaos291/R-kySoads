@@ -531,17 +531,9 @@ PrefabInstance:
       propertyPath: _fade
       value: 
       objectReference: {fileID: 1635185408}
-    - target: {fileID: 372203906851747902, guid: c0a283250886a19499961649673dd45c, type: 3}
-      propertyPath: _sceneChangeDuration
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599251278010207392, guid: c0a283250886a19499961649673dd45c, type: 3}
-      propertyPath: _fade
-      value: 
-      objectReference: {fileID: 1635185408}
-    - target: {fileID: 1599251278010207392, guid: c0a283250886a19499961649673dd45c, type: 3}
-      propertyPath: _sceneChangeDuration
-      value: 1.5
+    - target: {fileID: 2448242823450809612, guid: c0a283250886a19499961649673dd45c, type: 3}
+      propertyPath: m_text
+      value: BLUE HEAT
       objectReference: {fileID: 0}
     - target: {fileID: 2466808616770897299, guid: c0a283250886a19499961649673dd45c, type: 3}
       propertyPath: m_Name
@@ -631,14 +623,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3107469903450847818, guid: c0a283250886a19499961649673dd45c, type: 3}
+    - target: {fileID: 2559067148284961225, guid: c0a283250886a19499961649673dd45c, type: 3}
       propertyPath: _fade
       value: 
       objectReference: {fileID: 1635185408}
-    - target: {fileID: 3107469903450847818, guid: c0a283250886a19499961649673dd45c, type: 3}
-      propertyPath: _sceneChangeDuration
-      value: 1.5
-      objectReference: {fileID: 0}
+    - target: {fileID: 8919955916597892933, guid: c0a283250886a19499961649673dd45c, type: 3}
+      propertyPath: _fade
+      value: 
+      objectReference: {fileID: 1635185408}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0a283250886a19499961649673dd45c, type: 3}
 --- !u!224 &952147464 stripped
