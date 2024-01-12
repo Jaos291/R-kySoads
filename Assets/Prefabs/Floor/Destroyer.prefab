@@ -128,6 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8358119eecf59924d8c3bd9b7a158ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _VictoryCanvas: {fileID: 0}
+  _LostCanvas: {fileID: 0}
   _tagToCompare: Player
   _destroyer: 1
   _endOfGame: 0

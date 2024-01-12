@@ -12,14 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/StageSelect.unity
     guid: 043e74fc69c80ab4f87b88d04a65c2f3
   - enabled: 1
-    path: Assets/Scenes/StageS/First World/Irregular.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: fd2c10d6c4b577f44bd503fcd8690add
   - enabled: 1
     path: Assets/Scenes/StageS/First World/Spiral.unity
-    guid: e977384e25d612b4da5d8c6bafb5f138
+    guid: e7cb891adabb99f489540c52586ae76b
+  - enabled: 1
+    path: Assets/Scenes/StageS/First World/Irregular.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/StageS/First World/Elliptical.unity
     guid: 9e2450b92288d7143a6ff05420909822

@@ -623,10 +623,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2466808617532365463, guid: c0a283250886a19499961649673dd45c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1b1853b949d65084ca8fb1a4e1730a1d, type: 3}
+    - target: {fileID: 2466808617532365463, guid: c0a283250886a19499961649673dd45c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6226415
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466808617532365463, guid: c0a283250886a19499961649673dd45c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.307993
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466808617532365463, guid: c0a283250886a19499961649673dd45c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.23789605
+      objectReference: {fileID: 0}
     - target: {fileID: 2559067148284961225, guid: c0a283250886a19499961649673dd45c, type: 3}
       propertyPath: _fade
       value: 
       objectReference: {fileID: 1635185408}
+    - target: {fileID: 5648138307029911023, guid: c0a283250886a19499961649673dd45c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Eliptical
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089744072770902007, guid: c0a283250886a19499961649673dd45c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Spiral
+      objectReference: {fileID: 0}
     - target: {fileID: 8919955916597892933, guid: c0a283250886a19499961649673dd45c, type: 3}
       propertyPath: _fade
       value: 

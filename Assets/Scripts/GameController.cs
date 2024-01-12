@@ -35,7 +35,8 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        Invoke("SpawnPlayer",0f);
+        Invoke("SpawnPlayer", 6.15f);
+        FadeAway();
     }
 
     public void SpawnPlayer()
