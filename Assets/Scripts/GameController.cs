@@ -25,6 +25,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private GameObject _LostCanvas;
 
+    public MusicAndSFXController _musicAndSFXController;
+
     public GameObject explotion;
 
 
@@ -44,7 +46,10 @@ public class GameController : MonoBehaviour
         CanPlay = true;
 
         Instantiate(_player, playerStartingPoint);
-
+        GameController.Instance._musicAndSFXController.ChangeClip(
+            GameController.Instance._musicAndSFXController.currentClip[1],
+            true
+            );
         if (!_player.activeSelf)
         {
             _player.SetActive(true);

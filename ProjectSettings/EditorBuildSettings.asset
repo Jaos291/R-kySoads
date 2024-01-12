@@ -19,8 +19,8 @@ EditorBuildSettings:
     guid: e7cb891adabb99f489540c52586ae76b
   - enabled: 1
     path: Assets/Scenes/StageS/First World/Irregular.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    guid: 521f5cc6e788d574884109fa8419845d
   - enabled: 1
-    path: Assets/Scenes/StageS/First World/Elliptical.unity
-    guid: 9e2450b92288d7143a6ff05420909822
+    path: Assets/Scenes/StageS/First World/Eliptical.unity
+    guid: 52465284be4f7a74881baa2c2688ed1d
   m_configObjects: {}

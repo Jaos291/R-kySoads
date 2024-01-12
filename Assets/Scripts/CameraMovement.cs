@@ -21,6 +21,10 @@ public class CameraMovement : MonoBehaviour
     IEnumerator Move()
     {
         yield return new WaitForSeconds(0.75f);
+        GameController.Instance._musicAndSFXController.ChangeClip(
+            GameController.Instance._musicAndSFXController.currentClip[0],
+            false
+            );
         LeanTween.move(_camera.gameObject, _cameraPositions[0], 4.5f);
         yield return new WaitForSeconds(4.75f);
         LeanTween.rotate(_camera.gameObject, new Vector3(_cameraPositions[0].transform.rotation.x, 0,0), 0.25f);
