@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float playerSpeed = 5f;
+    public float playerSpeed = 8.5f;
     public float jumpForce = 5f;
 
     private Rigidbody _rb;
