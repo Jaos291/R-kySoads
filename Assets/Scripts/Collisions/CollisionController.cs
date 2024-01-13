@@ -51,7 +51,6 @@ public class CollisionController : MonoBehaviour
             }
             else if (_destroyer)
             {
-                LostState();
                 GameController.Instance.PlayerDied(collision.gameObject,false);
 
             }
@@ -69,10 +68,5 @@ public class CollisionController : MonoBehaviour
     private void VictoryState()
     {
         GameController.Instance.VictoryState();
-    }
-
-    private void LostState()
-    {
-        GameController.Instance.LostState();
     }
 }

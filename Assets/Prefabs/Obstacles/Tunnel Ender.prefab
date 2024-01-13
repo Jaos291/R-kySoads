@@ -75,6 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8358119eecf59924d8c3bd9b7a158ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _VictoryCanvas: {fileID: 0}
+  _LostCanvas: {fileID: 0}
   _tagToCompare: Player
   _destroyer: 0
   _endOfGame: 1
@@ -216,7 +218,6 @@ GameObject:
   - component: {fileID: 4192744643199451191}
   - component: {fileID: 4180532723303476495}
   - component: {fileID: 4916852297623190479}
-  - component: {fileID: 4204072168965786335}
   m_Layer: 0
   m_Name: Tunnel Ender
   m_TagString: Untagged
@@ -309,20 +310,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &4204072168965786335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4202912636313206303}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d3d5b41267863448624586dfdb70f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planeSpeed: 5
-  _speedChangerAmount: 1.25
 --- !u!1 &6548599761243520498
 GameObject:
   m_ObjectHideFlags: 0

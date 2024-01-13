@@ -6,11 +6,29 @@ using UnityEngine.InputSystem;
 
 public class PlaneMovement : MonoBehaviour
 {
-    public float planeSpeed;
+    
 
-    [SerializeField] private float _speedChangerAmount = 1.25f;
+    [SerializeField] private float _speedChangerAmount = 2f;
 
-    private float y;
+    public static bool planeMoving;
+
+    public static float currentSpeed;
+
+    public static bool slowing;
+
+    public static float planeSpeed;
+
+    private void Start()
+    {
+        RestartValues();
+    }
+    public void RestartValues()
+    {
+        planeMoving = false;
+        currentSpeed = 0;
+        slowing = false;
+        planeSpeed = 0;
+    }
 
     private void Update()
     {
@@ -19,6 +37,15 @@ public class PlaneMovement : MonoBehaviour
             transform.Translate(Vector3.back * planeSpeed * Time.fixedDeltaTime);
 
             ChangeSetSpeed();
+
+            if (planeSpeed > 0)
+            {
+                planeMoving = true;
+            }
+            else
+            {
+                planeMoving = false;
+            }
         }
     }
 
@@ -26,14 +53,17 @@ public class PlaneMovement : MonoBehaviour
     {
         if (!Application.platform.Equals(RuntimePlatform.Android))
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (GameController.Instance.CanPlay && !slowing)
             {
-                MoreSpeed(_speedChangerAmount);
-            }
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    MoreSpeed(_speedChangerAmount);
+                }
 
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                LessSpeed(_speedChangerAmount);
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    LessSpeed(_speedChangerAmount);
+                }
             }
         }
     }
@@ -41,15 +71,18 @@ public class PlaneMovement : MonoBehaviour
     public void MoreSpeed(float speedChanger)
     {
         planeSpeed += speedChanger;
+        currentSpeed = planeSpeed;
+        Debug.Log(planeSpeed);
     }
 
     public void LessSpeed(float speedChanger)
     {
         planeSpeed -= speedChanger;
 
-        if (planeSpeed < 0)
+        if (planeSpeed <= 0)
         {
             planeSpeed = 0;
         }
+        currentSpeed = planeSpeed;
     }
 }

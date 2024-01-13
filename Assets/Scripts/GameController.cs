@@ -25,6 +25,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private GameObject _LostCanvas;
 
+    public StageConfigurationSO StageConfigurationSO;
+
     public MusicAndSFXController _musicAndSFXController;
 
     public GameObject explotion;
@@ -54,6 +56,8 @@ public class GameController : MonoBehaviour
         {
             _player.SetActive(true);
         }
+        _player.GetComponent<PlayerStats>().RestartValues();
+
     }
 
     public void PlayerDied(GameObject player, bool winner)
@@ -63,6 +67,7 @@ public class GameController : MonoBehaviour
             GameObject explosive = Instantiate(explotion, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), Quaternion.identity);
             //explosive.SetActive(true);
             player.gameObject.SetActive(false);
+            LostState();
         }
         else
         {

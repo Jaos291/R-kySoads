@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed = 8.5f;
     public float jumpForce = 5f;
-
+    public float toRotate = 7.5f;
     private Rigidbody _rb;
 
     private float x;
@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        Physics.gravity = new Vector2(0, -9.8f) * GameController.Instance.StageConfigurationSO.gravityScale;
     }
     private void Update()
     {
@@ -47,8 +48,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = false;
             _rb.AddForce(new Vector2(_rb.velocity.x, jumpForce), ForceMode.Impulse);
-            float randomRotation = Random.Range(5f, 25f);
-            LeanTween.rotate(this.gameObject, new Vector3(randomRotation, this.gameObject.transform.rotation.y), rotationTime);
+            LeanTween.rotate(this.gameObject, new Vector3(toRotate, this.gameObject.transform.rotation.y), rotationTime);
         }
     }
 }

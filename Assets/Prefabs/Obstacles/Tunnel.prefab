@@ -75,6 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8358119eecf59924d8c3bd9b7a158ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _VictoryCanvas: {fileID: 0}
+  _LostCanvas: {fileID: 0}
   _tagToCompare: Player
   _destroyer: 0
   _endOfGame: 0
@@ -125,8 +127,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.05774064, y: 1, z: 1}
-  m_Center: {x: -0.43181768, y: 0, z: 0}
+  m_Size: {x: 0.057740662, y: 0.86568433, z: 1}
+  m_Center: {x: -0.43181768, y: -0.06715803, z: 0}
 --- !u!54 &8958534547566063371
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -155,6 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8358119eecf59924d8c3bd9b7a158ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _VictoryCanvas: {fileID: 0}
+  _LostCanvas: {fileID: 0}
   _tagToCompare: Player
   _destroyer: 1
   _endOfGame: 0
@@ -235,6 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8358119eecf59924d8c3bd9b7a158ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _VictoryCanvas: {fileID: 0}
+  _LostCanvas: {fileID: 0}
   _tagToCompare: Player
   _destroyer: 0
   _endOfGame: 0
@@ -315,6 +321,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8358119eecf59924d8c3bd9b7a158ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _VictoryCanvas: {fileID: 0}
+  _LostCanvas: {fileID: 0}
   _tagToCompare: Player
   _destroyer: 0
   _endOfGame: 0
@@ -395,6 +403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8358119eecf59924d8c3bd9b7a158ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _VictoryCanvas: {fileID: 0}
+  _LostCanvas: {fileID: 0}
   _tagToCompare: Player
   _destroyer: 0
   _endOfGame: 0
@@ -445,8 +455,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.065071955, y: 1, z: 1}
-  m_Center: {x: -0.467467, y: 0, z: 0}
+  m_Size: {x: 0.065071955, y: 0.9174147, z: 1}
+  m_Center: {x: -0.46746698, y: -0.04129267, z: 0}
 --- !u!54 &1442519579692289261
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -475,6 +485,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8358119eecf59924d8c3bd9b7a158ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _VictoryCanvas: {fileID: 0}
+  _LostCanvas: {fileID: 0}
   _tagToCompare: Player
   _destroyer: 1
   _endOfGame: 0
@@ -492,7 +504,6 @@ GameObject:
   - component: {fileID: 7395644594504778421}
   - component: {fileID: 7388499087131930509}
   - component: {fileID: 1779255588602591565}
-  - component: {fileID: 7411475588984227933}
   m_Layer: 0
   m_Name: Tunnel
   m_TagString: Untagged
@@ -587,17 +598,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &7411475588984227933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7412566943328074909}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d3d5b41267863448624586dfdb70f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planeSpeed: 5
-  _speedChangerAmount: 1.25
