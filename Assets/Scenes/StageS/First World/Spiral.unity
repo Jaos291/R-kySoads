@@ -1498,6 +1498,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1824763257}
     - target: {fileID: 5281322356421173539, guid: 1f3e61736448e1247a3438f49b5102de, type: 3}
+      propertyPath: playerStartingPoint
+      value: 
+      objectReference: {fileID: 529725822}
+    - target: {fileID: 5281322356421173539, guid: 1f3e61736448e1247a3438f49b5102de, type: 3}
       propertyPath: StageConfigurationSO
       value: 
       objectReference: {fileID: 11400000, guid: e8175781ba033194e9b50999d67c526a, type: 2}

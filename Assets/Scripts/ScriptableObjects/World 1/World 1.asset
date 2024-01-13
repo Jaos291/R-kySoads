@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: World 1
   m_EditorClassIdentifier: 
   gravityScale: 4
-  speedMultiplier: 1
+  speedMultiplier: 4

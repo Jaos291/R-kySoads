@@ -7,8 +7,7 @@ using UnityEngine.InputSystem;
 public class PlaneMovement : MonoBehaviour
 {
     
-
-    [SerializeField] private float _speedChangerAmount = 2f;
+    private float _speedChangerAmount;
 
     public static bool planeMoving;
 
@@ -28,6 +27,7 @@ public class PlaneMovement : MonoBehaviour
         currentSpeed = 0;
         slowing = false;
         planeSpeed = 0;
+        _speedChangerAmount = GameController.Instance.StageConfigurationSO.speedMultiplier;
     }
 
     private void Update()
