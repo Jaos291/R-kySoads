@@ -71,6 +71,10 @@ public class PlaneMovement : MonoBehaviour
     public void MoreSpeed(float speedChanger)
     {
         planeSpeed += speedChanger;
+        if (planeSpeed >= 16)
+        {
+            planeSpeed = 16;
+        }
         currentSpeed = planeSpeed;
         Debug.Log(planeSpeed);
     }
