@@ -15,10 +15,6 @@ public class GameController : MonoBehaviour
 
     public bool CanPlay = false;
 
-    [SerializeField] private GameObject _victory;
-
-    [SerializeField] private SceneChanger sceneChanger;
-
     [SerializeField] private GameObject _fade;
 
     [SerializeField] private GameObject _VictoryCanvas;
