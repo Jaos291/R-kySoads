@@ -22,7 +22,12 @@ public class PlayerMovement : MonoBehaviour
 
     public ParticleSystem exhaustParticleSystem;
 
-    private float ParticleSystemMultiplier = 1.75f;
+    public ParticleSystem[] hyperSpeedParticleSystem;
+
+    private float exhaustParticleSystemMultiplier = 1.75f;
+
+    private float hyperSpeedParticleSystemMultiplier = 0.3f;
+
 
     private void Start()
     {
@@ -37,7 +42,12 @@ public class PlayerMovement : MonoBehaviour
             Move();
             Jump();
             var emission = exhaustParticleSystem.emission;
-            emission.rateOverTime = PlaneMovement.planeSpeed * ParticleSystemMultiplier;
+            emission.rateOverTime = PlaneMovement.planeSpeed * exhaustParticleSystemMultiplier;
+            for (int i = 0; i < hyperSpeedParticleSystem.Length; i++)
+            {
+                var hyperSpeedEmission = hyperSpeedParticleSystem[i].emission;
+                hyperSpeedEmission.rateOverTime = PlaneMovement.planeSpeed * hyperSpeedParticleSystemMultiplier;
+            }
         }
     }
 

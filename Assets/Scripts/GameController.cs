@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour
         {
             _player.SetActive(true);
         }
-        _player.GetComponent<PlayerStats>().RestartValues();
+        _player.GetComponent<Referencer>().Player.GetComponent<PlayerStats>().RestartValues();
 
     }
 
