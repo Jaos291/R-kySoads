@@ -66,13 +66,13 @@ public class PlayerStats : MonoBehaviour
             if (fuel <= 0)
             {
                 PlaneMovement.slowing = true;
-                currentSpeed = Deaccelerate();
+                PlaneMovement.planeSpeed = Deaccelerate();
             }
 
-            if (currentSpeed<=0)
+            if (PlaneMovement.planeSpeed <= 0)
             {
-                currentSpeed = 0;
-                PlaneMovement.planeSpeed = currentSpeed;
+                PlaneMovement.planeSpeed = 0;
+                currentSpeed = PlaneMovement.planeSpeed;
                 GameController.Instance.LostState();
             }
         }

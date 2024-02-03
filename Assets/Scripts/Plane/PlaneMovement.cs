@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlaneMovement : MonoBehaviour
 {
-    
+
     private float _speedChangerAmount;
 
     public static bool planeMoving;
@@ -16,6 +16,12 @@ public class PlaneMovement : MonoBehaviour
     public static bool slowing;
 
     public static float planeSpeed;
+
+    private ParticleSystem particleEmission;
+
+    private float particleMultiplier = 0.1f;
+
+    public static bool _maxSpeed = false;
 
     private void Start()
     {
@@ -71,9 +77,14 @@ public class PlaneMovement : MonoBehaviour
     public void MoreSpeed(float speedChanger)
     {
         planeSpeed += speedChanger;
-        if (planeSpeed >= 16)
+        if (planeSpeed >= 25)
         {
-            planeSpeed = 16;
+            planeSpeed = 25;
+            _maxSpeed = true;
+        }
+        else
+        {
+            _maxSpeed = false;
         }
         currentSpeed = planeSpeed;
         Debug.Log(planeSpeed);

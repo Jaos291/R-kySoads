@@ -42,7 +42,10 @@ public class CollisionController : MonoBehaviour
         {
             if (!_destroyer && !_endOfGame)
             {
-                collision.gameObject.GetComponent<PlayerMovement>().isGrounded = true;
+                collision.gameObject.GetComponent<PlayerMovement>().canJump = true;
+                collision.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                LeanTween.cancel(collision.gameObject);
+                LeanTween.rotate(collision.gameObject, new Vector3(0, 0), 0.1f);
             }
             else if (!_destroyer && _endOfGame)
             {

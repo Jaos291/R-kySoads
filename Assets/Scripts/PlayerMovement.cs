@@ -7,16 +7,22 @@ public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed = 8.5f;
     public float jumpForce = 5f;
-    public float toRotate = 7.5f;
+    public float toRotate = 25.55f;
     private Rigidbody _rb;
 
     private float x;
 
-    private float rotationTime = 0.5f;
+    private float rotationTime = 0.125f;
 
-    [HideInInspector] public bool isGrounded = true;
+    [HideInInspector] public bool canJump = true;
 
     [HideInInspector] public bool isRotating = false;
+
+    [HideInInspector] public bool _isFalling = false;
+
+    public ParticleSystem exhaustParticleSystem;
+
+    private float ParticleSystemMultiplier = 1.75f;
 
     private void Start()
     {
@@ -27,28 +33,58 @@ public class PlayerMovement : MonoBehaviour
     {
         if (GameController.Instance.CanPlay)
         {
+            LeanTween.rotateY(this.gameObject, 0f, 0f);
             Move();
             Jump();
+            var emission = exhaustParticleSystem.emission;
+            emission.rateOverTime = PlaneMovement.planeSpeed * ParticleSystemMultiplier;
         }
     }
 
     private void Move()
     {
         x = Input.GetAxis("Horizontal");
-        _rb.velocity = new Vector2(playerSpeed * x, _rb.velocity.y);
-        if (isGrounded)
+        if (x > 0)
         {
-            LeanTween.rotate(this.gameObject, new Vector3(0, 0), 0.25f);
+            LeanTween.rotateZ(this.gameObject, -10f, 0.125f);
         }
+        else if (x < 0)
+        {
+            LeanTween.rotateZ(this.gameObject, 10f, 0.125f);
+        }
+        else
+        {
+            LeanTween.rotateZ(this.gameObject,0f,0.125f);
+        }
+        _rb.velocity = new Vector2(playerSpeed * x, _rb.velocity.y);
     }
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
-            isGrounded = false;
+            canJump = false;
             _rb.AddForce(new Vector2(_rb.velocity.x, jumpForce), ForceMode.Impulse);
-            LeanTween.rotate(this.gameObject, new Vector3(toRotate, this.gameObject.transform.rotation.y), rotationTime);
+
+            if (_rb.velocity.y<0)
+            {
+                _isFalling = true;
+            }
+
+            StartRotation();
+        }
+    }
+
+    private void StartRotation()
+    {
+        LeanTween.rotateX(this.gameObject, -17.5f, 0.125f).setOnComplete(finishRotation);
+    }
+
+    private void finishRotation()
+    {
+        if (_isFalling)
+        {
+            LeanTween.rotateX(this.gameObject, 17.5f, 0.50f);
         }
     }
 }
