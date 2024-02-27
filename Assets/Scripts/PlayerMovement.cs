@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 5f;
     public float toRotate = 25.55f;
     private Rigidbody _rb;
+    private Joystick fixedJoystick;
+    private Button jumpButton;
 
     private float x;
 
@@ -33,14 +37,18 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         Physics.gravity = new Vector2(0, -9.8f) * GameController.Instance.StageConfigurationSO.gravityScale;
+        fixedJoystick = GameObject.Find("Fixed Joystick").GetComponent<FixedJoystick>();
+        jumpButton = GameObject.Find("JumpButton").GetComponent<Button>();
+        jumpButton.onClick.AddListener(Jump);
     }
+
     private void Update()
     {
         if (GameController.Instance.CanPlay)
         {
             LeanTween.rotateY(this.gameObject, 0f, 0f);
             Move();
-            Jump();
+            //Jump();
             var emission = exhaustParticleSystem.emission;
             emission.rateOverTime = PlaneMovement.planeSpeed * exhaustParticleSystemMultiplier;
             for (int i = 0; i < hyperSpeedParticleSystem.Length; i++)
@@ -53,7 +61,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        x = Input.GetAxis("Horizontal");
+        if (!Application.platform.Equals(RuntimePlatform.Android))
+        {
+            x = fixedJoystick.Horizontal;
+        }
+        else
+        {
+            x = Input.GetAxis("Horizontal");
+        }
         if (x > 0)
         {
             LeanTween.rotateZ(this.gameObject, -10f, 0.125f);
@@ -71,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && canJump)
+        if (canJump)
         {
             canJump = false;
             _rb.AddForce(new Vector2(_rb.velocity.x, jumpForce), ForceMode.Impulse);

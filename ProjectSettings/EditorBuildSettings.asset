@@ -17,10 +17,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StageS/First World/Spiral.unity
     guid: e7cb891adabb99f489540c52586ae76b
-  - enabled: 1
-    path: Assets/Scenes/StageS/First World/Irregular.unity
-    guid: 0b12dedad802d6d47819d8dce36b6387
-  - enabled: 1
-    path: Assets/Scenes/StageS/First World/Eliptical.unity
-    guid: 4cd53e04b9eeb6243922e5d2c0fcc1d2
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
