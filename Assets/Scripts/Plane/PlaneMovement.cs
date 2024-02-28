@@ -35,6 +35,9 @@ public class PlaneMovement : MonoBehaviour
     }
     public void RestartValues()
     {
+        QualitySettings.vSyncCount = 0;
+        int targetFrameRate = 60;
+        Application.targetFrameRate = targetFrameRate;
         planeMoving = false;
         currentSpeed = 0;
         slowing = false;
@@ -63,7 +66,7 @@ public class PlaneMovement : MonoBehaviour
     public void ChangeSetSpeed()
     {
         #region ANDROID
-        if (Application.platform.Equals(RuntimePlatform.Android))
+        if (!Application.platform.Equals(RuntimePlatform.Android))
         {
             if (GameController.Instance.CanPlay && !slowing)
             {
@@ -118,7 +121,7 @@ public class PlaneMovement : MonoBehaviour
 
         Debug.Log(currentSpeed);
 
-        transform.Translate(Vector3.back * planeSpeed * Time.fixedDeltaTime);
+        transform.Translate(Vector3.back * planeSpeed * 2f * Time.fixedDeltaTime);
 
         return currentSpeed;
     }

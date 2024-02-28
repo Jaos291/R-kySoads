@@ -759,7 +759,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1029927167}
   m_OnClick:
     m_PersistentCalls:
@@ -880,7 +880,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1065262925}
   m_OnClick:
     m_PersistentCalls:
@@ -990,8 +990,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294243811
-  m_fontColor: {r: 0.89019614, g: 0.9607844, b: 0.9568628, a: 1}
+    rgba: 4278193270
+  m_fontColor: {r: 0.46226418, g: 0.04683949, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1372,6 +1372,7 @@ GameObject:
   - component: {fileID: 1590431043}
   - component: {fileID: 1590431042}
   - component: {fileID: 1590431041}
+  - component: {fileID: 1590431044}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1442,7 +1443,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1590431042}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1590431044}
+        m_TargetAssemblyTypeName: Quiter, Assembly-CSharp
+        m_MethodName: QuitApplication
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1590431042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1481,6 +1494,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590431039}
   m_CullTransparentMesh: 1
+--- !u!114 &1590431044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590431039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84c54994248ab14aa383033e6f88029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1819301142
 GameObject:
   m_ObjectHideFlags: 0

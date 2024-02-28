@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        if (!Application.platform.Equals(RuntimePlatform.Android))
+        if (Application.platform.Equals(RuntimePlatform.Android))
         {
             x = fixedJoystick.Horizontal;
         }
@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
         {
             LeanTween.rotateZ(this.gameObject,0f,0.125f);
         }
-        _rb.velocity = new Vector2(playerSpeed * x, _rb.velocity.y);
+        _rb.velocity = new Vector2(playerSpeed * x , _rb.velocity.y);
     }
 
     private void Jump()

@@ -680,7 +680,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 1
-  m_CellSize: {x: -415.1, y: 100}
+  m_CellSize: {x: -262.05, y: 100}
   m_Spacing: {x: 958.2, y: 114.53}
   m_Constraint: 1
   m_ConstraintCount: 3
@@ -814,6 +814,10 @@ PrefabInstance:
     - target: {fileID: 2466808617543763742, guid: c0a283250886a19499961649673dd45c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Spiral
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466808617543763743, guid: c0a283250886a19499961649673dd45c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2466808618675379203, guid: c0a283250886a19499961649673dd45c, type: 3}
       propertyPath: m_text
