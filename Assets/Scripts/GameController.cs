@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameController : MonoBehaviour
-{
+public class GameController : MonoBehaviour { 
     public static GameController Instance;
 
     //------------------
@@ -27,6 +26,10 @@ public class GameController : MonoBehaviour
 
     public GameObject explotion;
 
+    private PlayerMovement playerMovement;
+
+    private GameObject playerGO;
+
 
     private void Awake()
     {
@@ -43,7 +46,7 @@ public class GameController : MonoBehaviour
     {
         CanPlay = true;
 
-        Instantiate(_player, playerStartingPoint);
+        playerGO = Instantiate(_player, playerStartingPoint);
         GameController.Instance._musicAndSFXController.ChangeClip(
             GameController.Instance._musicAndSFXController.currentClip[1],
             true
@@ -53,6 +56,7 @@ public class GameController : MonoBehaviour
             _player.SetActive(true);
         }
         _player.GetComponent<Referencer>().Player.GetComponent<PlayerStats>().RestartValues();
+        playerMovement = playerGO.transform.GetChild(0).gameObject.GetComponent<PlayerMovement>();
 
     }
 
@@ -68,6 +72,14 @@ public class GameController : MonoBehaviour
         else
         {
             player.gameObject.SetActive(false);
+        }
+    }
+
+    public void PlayerJumped()
+    {
+        if (playerMovement)
+        {
+            playerMovement.Jump();
         }
     }
 

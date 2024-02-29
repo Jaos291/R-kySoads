@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed = 8.5f;
@@ -12,11 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public float toRotate = 25.55f;
     private Rigidbody _rb;
     private Joystick fixedJoystick;
-    private Button jumpButton;
 
     private float x;
-
-    private float rotationTime = 0.125f;
 
     [HideInInspector] public bool canJump = true;
 
@@ -38,8 +36,6 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         Physics.gravity = new Vector2(0, -9.8f) * GameController.Instance.StageConfigurationSO.gravityScale;
         fixedJoystick = GameObject.Find("Fixed Joystick").GetComponent<FixedJoystick>();
-        jumpButton = GameObject.Find("JumpButton").GetComponent<Button>();
-        jumpButton.onClick.AddListener(Jump);
     }
 
     private void Update()
@@ -48,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
         {
             LeanTween.rotateY(this.gameObject, 0f, 0f);
             Move();
-            //Jump();
             var emission = exhaustParticleSystem.emission;
             emission.rateOverTime = PlaneMovement.planeSpeed * exhaustParticleSystemMultiplier;
             for (int i = 0; i < hyperSpeedParticleSystem.Length; i++)
@@ -58,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
 
     private void Move()
     {
@@ -84,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         _rb.velocity = new Vector2(playerSpeed * x , _rb.velocity.y);
     }
 
-    private void Jump()
+    public void Jump()
     {
         if (canJump)
         {

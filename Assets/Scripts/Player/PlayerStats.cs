@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
     public float oxygen;
     public float fuel;
 
-    public float oxygenDecreaseRate = 1f;
+    public float oxygenDecreaseRate = 1.5f;
     public float fuelDecreaseRate = 0.5f;
     public float deAccelerationRate = 5f;
 

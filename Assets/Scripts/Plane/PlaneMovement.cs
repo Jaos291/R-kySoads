@@ -25,8 +25,8 @@ public class PlaneMovement : MonoBehaviour
     public static bool _maxSpeed = false;
 
 
-    private float maxSpeedValue = 25f;
-    private float aceleration = 7.5f;
+    private float maxSpeedValue = 30f;
+    private float aceleration = 9f;
     private float deceleration = 7.5f;
 
     private void Start()
