@@ -29,4 +29,9 @@ public class CameraMovement : MonoBehaviour
         yield return new WaitForSeconds(4.75f);
         LeanTween.rotate(_camera.gameObject, new Vector3(_cameraPositions[0].transform.rotation.x, 0,0), 0.25f);
     }
+
+    public void RestartLevelCamera()
+    {
+        _camera.transform.position = _cameraPositions[0].position;
+    }
 }

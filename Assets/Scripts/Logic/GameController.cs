@@ -75,6 +75,11 @@ public class GameController : MonoBehaviour {
         }
     }
 
+    public void RestartPlayer(GameObject player)
+    {
+        player.gameObject.SetActive(true);
+    }
+
     public void PlayerJumped()
     {
         if (playerMovement)
