@@ -14,7 +14,9 @@ public class GameController : MonoBehaviour {
 
     public bool CanPlay = false;
 
-    [SerializeField] private GameObject _fade;
+    [SerializeField] private GameObject _fadein;
+
+    [SerializeField] private GameObject _fadeOut;
 
     [SerializeField] private GameObject _VictoryCanvas;
 
@@ -90,7 +92,7 @@ public class GameController : MonoBehaviour {
 
     public void FadeAway()
     {
-        _fade.SetActive(true);
+        _fadein.SetActive(true);
     }
 
     public void VictoryState()
@@ -100,7 +102,18 @@ public class GameController : MonoBehaviour {
 
     public void LostState()
     {
-        StartCoroutine(ReturnToStageSelectForLosing());
+        StartCoroutine(ReturnToSameLevel());
+    }
+
+    IEnumerator ReturnToSameLevel()
+    {
+        _fadeOut.SetActive(true);
+        _player.GetComponent<Referencer>().Player.GetComponent<PlayerStats>().RestartValues();
+        yield return new WaitForSeconds(2f);
+        _fadeOut.SetActive(false);
+        Camera camera = Camera.main;
+        camera.GetComponent<CameraMovement>().RestartLevelCamera();
+        _player.gameObject.SetActive(true);
     }
 
     IEnumerator ReturnToStageSelectForWinning()

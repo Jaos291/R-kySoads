@@ -36,6 +36,8 @@ public class PlayerStats : MonoBehaviour
     {
         oxygen = 100f;
         fuel = 100f;
+        oxygenMeter.fillAmount = oxygen / 100f;
+        gasMeter.fillAmount = fuel / 100f;
     }
 
     private void LateUpdate()
