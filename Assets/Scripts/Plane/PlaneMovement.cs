@@ -29,6 +29,8 @@ public class PlaneMovement : MonoBehaviour
     private float aceleration = 9f;
     private float deceleration = 7.5f;
 
+    private float newSpeed;
+
     private void Start()
     {
         RestartValues();
@@ -65,37 +67,38 @@ public class PlaneMovement : MonoBehaviour
 
     public void ChangeSetSpeed()
     {
-        #region ANDROID
-        if (!Application.platform.Equals(RuntimePlatform.Android))
+        #region EVERYTHING ELSE
+        if (Application.platform.Equals(RuntimePlatform.Android))
         {
             if (GameController.Instance.CanPlay && !slowing)
             {
                 if (Input.GetKeyDown(KeyCode.W))
                 {
-                    planeSpeed = SpeedChanger(_speedChangerAmount);
+                    currentSpeed = SpeedChanger(_speedChangerAmount);
                 }
 
                 if (Input.GetKeyDown(KeyCode.S))
                 {
-                    planeSpeed = SpeedChanger(-_speedChangerAmount);
+                    currentSpeed = SpeedChanger(-_speedChangerAmount);
                 }
             }
         }
         #endregion
-        #region EVERYTHING ELSE
+        #region Android
         else
         {
             if (GameController.Instance.CanPlay && !slowing)
             {
-                planeSpeed = SpeedChanger(_speedChangerAmount * (fixedJoystick.Vertical*0.5f));
+                currentSpeed = SpeedChanger(_speedChangerAmount * (fixedJoystick.Vertical*0.5f));
             }
         }
         #endregion
+
+        planeSpeed = currentSpeed;
     }
 
     private float SpeedChanger(float speedChanger)
     {
-
         if (speedChanger > 0)
         {
             planeSpeed = Mathf.MoveTowards(planeSpeed, maxSpeedValue, aceleration * Time.deltaTime);
@@ -119,10 +122,14 @@ public class PlaneMovement : MonoBehaviour
 
         currentSpeed = planeSpeed;
 
-        Debug.Log(currentSpeed);
-
-        transform.Translate(Vector3.back * planeSpeed * 2f * Time.fixedDeltaTime);
+        transform.Translate(Vector3.back * currentSpeed * 2f * Time.deltaTime);
 
         return currentSpeed;
+    }
+
+    public void RestartLevel()
+    {
+        planeSpeed = 0f;
+        this.transform.position = Vector3.zero;
     }
 }

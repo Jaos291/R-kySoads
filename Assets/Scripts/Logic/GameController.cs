@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour {
 
     public GameObject _player;
 
+    public GameObject PlayerShip;
+
     public Transform playerStartingPoint;
 
     public bool CanPlay = false;
@@ -32,6 +34,8 @@ public class GameController : MonoBehaviour {
 
     private GameObject playerGO;
 
+    private PlaneMovement planeMovement;
+
 
     private void Awake()
     {
@@ -40,6 +44,7 @@ public class GameController : MonoBehaviour {
 
     private void Start()
     {
+        planeMovement = GameObject.Find("Floor").GetComponent<PlaneMovement>();
         Invoke("SpawnPlayer", 6.15f);
         FadeAway();
     }
@@ -49,31 +54,34 @@ public class GameController : MonoBehaviour {
         CanPlay = true;
 
         playerGO = Instantiate(_player, playerStartingPoint);
-        GameController.Instance._musicAndSFXController.ChangeClip(
+        if (!GameController.Instance._musicAndSFXController.audioSource.isPlaying)
+        {
+            GameController.Instance._musicAndSFXController.ChangeClip(
             GameController.Instance._musicAndSFXController.currentClip[1],
             true
             );
+        }
         if (!_player.activeSelf)
         {
             _player.SetActive(true);
         }
-        _player.GetComponent<Referencer>().Player.GetComponent<PlayerStats>().RestartValues();
-        playerMovement = playerGO.transform.GetChild(0).gameObject.GetComponent<PlayerMovement>();
+        PlayerShip = playerGO.GetComponent<Referencer>().Player;
+        PlayerShip.GetComponent<PlayerStats>().RestartValues();
+        playerMovement = PlayerShip.GetComponent<PlayerMovement>();
 
     }
 
-    public void PlayerDied(GameObject player, bool winner)
+    public void PlayerDied(bool winner)
     {
         if (!winner)
         {
-            GameObject explosive = Instantiate(explotion, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), Quaternion.identity);
+            GameObject explosive = Instantiate(explotion, new Vector3(PlayerShip.transform.position.x, PlayerShip.transform.position.y, PlayerShip.transform.position.z), Quaternion.identity);
             //explosive.SetActive(true);
-            player.gameObject.SetActive(false);
             LostState();
         }
         else
         {
-            player.gameObject.SetActive(false);
+            PlayerShip.gameObject.SetActive(false);
         }
     }
 
@@ -102,18 +110,23 @@ public class GameController : MonoBehaviour {
 
     public void LostState()
     {
-        StartCoroutine(ReturnToSameLevel());
+        StartCoroutine(ReturnToSameLevel(PlayerShip));
     }
 
-    IEnumerator ReturnToSameLevel()
+    IEnumerator ReturnToSameLevel(GameObject player)
     {
+        Destroy(playerGO);
         _fadeOut.SetActive(true);
-        _player.GetComponent<Referencer>().Player.GetComponent<PlayerStats>().RestartValues();
+        /*PlayerShip.GetComponent<PlayerStats>().RestartValues();
+        PlayerShip.SetActive(false);*/
         yield return new WaitForSeconds(2f);
         _fadeOut.SetActive(false);
         Camera camera = Camera.main;
         camera.GetComponent<CameraMovement>().RestartLevelCamera();
-        _player.gameObject.SetActive(true);
+        planeMovement.RestartLevel();
+        /*PlayerShip.SetActive(true);
+        PlayerShip.transform.position = playerStartingPoint.position;*/
+        SpawnPlayer();
     }
 
     IEnumerator ReturnToStageSelectForWinning()

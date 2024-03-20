@@ -25,19 +25,22 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
+        gasMeter = GameObject.Find("GasImageBar").GetComponent<Image>();
+        oxygenMeter = GameObject.Find("OxygenImageBar").GetComponent<Image>();
         oxygenOriginalValue = 100f;
         fuelOriginalValue = 100f;
         moving = false;
-        gasMeter = GameObject.Find("GasImageBar").GetComponent<Image>();
-        oxygenMeter = GameObject.Find("OxygenImageBar").GetComponent<Image>();
     }
 
     public void RestartValues()
     {
         oxygen = 100f;
         fuel = 100f;
-        oxygenMeter.fillAmount = oxygen / 100f;
-        gasMeter.fillAmount = fuel / 100f;
+        if (oxygenMeter && gasMeter)
+        {
+            oxygenMeter.fillAmount = oxygen / 100f;
+            gasMeter.fillAmount = fuel / 100f;
+        }
     }
 
     private void LateUpdate()
@@ -60,7 +63,7 @@ public class PlayerStats : MonoBehaviour
 
         if (oxygen <= 0f)
         {
-            GameController.Instance.PlayerDied(this.gameObject, false);
+            GameController.Instance.PlayerDied(false);
         }
     }
 
@@ -77,14 +80,16 @@ public class PlayerStats : MonoBehaviour
             {
                 PlaneMovement.slowing = true;
                 PlaneMovement.planeSpeed = Deaccelerate();
+
+                if (PlaneMovement.planeSpeed <= 0)
+                {
+                    PlaneMovement.planeSpeed = 0;
+                    currentSpeed = PlaneMovement.planeSpeed;
+                    GameController.Instance.LostState();
+                }
             }
 
-            if (PlaneMovement.planeSpeed <= 0)
-            {
-                PlaneMovement.planeSpeed = 0;
-                currentSpeed = PlaneMovement.planeSpeed;
-                GameController.Instance.LostState();
-            }
+
 
             gasMeter.fillAmount = fuel / 100f;
         }

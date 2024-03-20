@@ -50,11 +50,11 @@ public class CollisionController : MonoBehaviour
             else if (!_destroyer && _endOfGame)
             {
                 VictoryState();
-                GameController.Instance.PlayerDied(collision.gameObject,true);
+                GameController.Instance.PlayerDied(true);
             }
             else if (_destroyer)
             {
-                GameController.Instance.PlayerDied(collision.gameObject,false);
+                GameController.Instance.PlayerDied(false);
 
             }
             else if (_oxygenBurner)
