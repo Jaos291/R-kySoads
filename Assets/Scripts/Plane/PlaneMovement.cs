@@ -68,7 +68,7 @@ public class PlaneMovement : MonoBehaviour
     public void ChangeSetSpeed()
     {
         #region EVERYTHING ELSE
-        if (Application.platform.Equals(RuntimePlatform.Android))
+        if (!Application.platform.Equals(RuntimePlatform.Android))
         {
             if (GameController.Instance.CanPlay && !slowing)
             {

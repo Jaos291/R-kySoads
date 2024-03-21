@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        if (!Application.platform.Equals(RuntimePlatform.Android))
+        if (Application.platform.Equals(RuntimePlatform.Android))
         {
             x = fixedJoystick.Horizontal;
         }
