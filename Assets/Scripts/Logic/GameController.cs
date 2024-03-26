@@ -52,7 +52,10 @@ public class GameController : MonoBehaviour {
     public void SpawnPlayer()
     {
         CanPlay = true;
-
+        if (playerGO)
+        {
+            Destroy(playerGO);
+        }
         playerGO = Instantiate(_player, playerStartingPoint);
         if (!GameController.Instance._musicAndSFXController.audioSource.isPlaying)
         {
@@ -81,7 +84,7 @@ public class GameController : MonoBehaviour {
         }
         else
         {
-            PlayerShip.gameObject.SetActive(false);
+            Destroy(playerGO);
         }
     }
 

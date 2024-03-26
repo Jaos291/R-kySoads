@@ -89,7 +89,7 @@ public class PlaneMovement : MonoBehaviour
         {
             if (GameController.Instance.CanPlay && !slowing)
             {
-                currentSpeed = SpeedChanger(_speedChangerAmount * (fixedJoystick.Vertical*0.5f));
+                currentSpeed = SpeedChanger(_speedChangerAmount * (fixedJoystick.Vertical*0.75f));
             }
         }
         #endregion
