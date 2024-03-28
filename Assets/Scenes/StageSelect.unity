@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 5
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: a4d12d1eb0f9a694b82a4c0f8f9b7cb0, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 009630c7f41c2664588f860a1b929051, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -515,7 +515,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1500
+  far clip plane: 15000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -2630,63 +2630,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6382513757996943975, guid: 08ea040e568c607429fed97e771d4743, type: 3}
   m_PrefabInstance: {fileID: 1640388296}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1666968360
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 170028, guid: aed921ccd7a51cd47bcf557c266c33fa, type: 3}
-      propertyPath: m_Name
-      value: Distant_Stars_Dense
-      objectReference: {fileID: 0}
-    - target: {fileID: 480122, guid: aed921ccd7a51cd47bcf557c266c33fa, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 480122, guid: aed921ccd7a51cd47bcf557c266c33fa, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 145
-      objectReference: {fileID: 0}
-    - target: {fileID: 480122, guid: aed921ccd7a51cd47bcf557c266c33fa, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 599
-      objectReference: {fileID: 0}
-    - target: {fileID: 480122, guid: aed921ccd7a51cd47bcf557c266c33fa, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 382
-      objectReference: {fileID: 0}
-    - target: {fileID: 480122, guid: aed921ccd7a51cd47bcf557c266c33fa, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 480122, guid: aed921ccd7a51cd47bcf557c266c33fa, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 480122, guid: aed921ccd7a51cd47bcf557c266c33fa, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 480122, guid: aed921ccd7a51cd47bcf557c266c33fa, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 480122, guid: aed921ccd7a51cd47bcf557c266c33fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 480122, guid: aed921ccd7a51cd47bcf557c266c33fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 480122, guid: aed921ccd7a51cd47bcf557c266c33fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: aed921ccd7a51cd47bcf557c266c33fa, type: 3}
 --- !u!1 &1833644620
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,7 +3136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80.4, y: -80.4}
+  m_AnchoredPosition: {x: 80.3999, y: -80.400024}
   m_SizeDelta: {x: 54.1893, y: 53.5568}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2099113941
