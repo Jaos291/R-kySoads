@@ -36,6 +36,8 @@ public class GameController : MonoBehaviour {
 
     private PlaneMovement planeMovement;
 
+    private TimerLogic timerLogic;
+
 
     private void Awake()
     {
@@ -45,6 +47,7 @@ public class GameController : MonoBehaviour {
     private void Start()
     {
         planeMovement = GameObject.Find("Floor").GetComponent<PlaneMovement>();
+        timerLogic = GameObject.Find("Timer").GetComponent<TimerLogic>();
         Invoke("SpawnPlayer", 6.15f);
         FadeAway();
     }
@@ -80,11 +83,14 @@ public class GameController : MonoBehaviour {
         {
             GameObject explosive = Instantiate(explotion, new Vector3(PlayerShip.transform.position.x, PlayerShip.transform.position.y, PlayerShip.transform.position.z), Quaternion.identity);
             //explosive.SetActive(true);
+            CanPlay = false;
             LostState();
         }
         else
         {
+            CanPlay = false;
             Destroy(playerGO);
+            timerLogic.EndRace();
         }
     }
 
@@ -124,12 +130,14 @@ public class GameController : MonoBehaviour {
         PlayerShip.SetActive(false);*/
         yield return new WaitForSeconds(2f);
         _fadeOut.SetActive(false);
+        timerLogic.ResetTimerUI();
         Camera camera = Camera.main;
         camera.GetComponent<CameraMovement>().RestartLevelCamera();
         planeMovement.RestartLevel();
         /*PlayerShip.SetActive(true);
         PlayerShip.transform.position = playerStartingPoint.position;*/
         SpawnPlayer();
+        CanPlay = true;
     }
 
     IEnumerator ReturnToStageSelectForWinning()
