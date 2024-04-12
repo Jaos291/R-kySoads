@@ -8,7 +8,9 @@ public class PlaneMovement : MonoBehaviour
 {
     [SerializeField] private FixedJoystick fixedJoystick;
 
-    private float _speedChangerAmount;
+    [SerializeField] private float _speedChangerAmountAndroid;
+
+    private float _speedChangerAmountPC = 100f;
 
     public static bool planeMoving;
 
@@ -18,14 +20,10 @@ public class PlaneMovement : MonoBehaviour
 
     public static float planeSpeed;
 
-    private ParticleSystem particleEmission;
-
-    private float particleMultiplier = 0.1f;
-
     public static bool _maxSpeed = false;
 
 
-    private float maxSpeedValue = 30f;
+    private float maxSpeedValue = 40f;
     private float aceleration = 9f;
     private float deceleration = 7.5f;
 
@@ -44,10 +42,10 @@ public class PlaneMovement : MonoBehaviour
         currentSpeed = 0;
         slowing = false;
         planeSpeed = 0;
-        _speedChangerAmount = GameController.Instance.StageConfigurationSO.speedMultiplier;
+        _speedChangerAmountAndroid = GameController.Instance.StageConfigurationSO.speedMultiplier;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (GameController.Instance.CanPlay)
         {
@@ -72,15 +70,17 @@ public class PlaneMovement : MonoBehaviour
         {
             if (GameController.Instance.CanPlay && !slowing)
             {
-                if (Input.GetKeyDown(KeyCode.W))
+                if (Input.GetKey(KeyCode.W))
                 {
-                    currentSpeed = SpeedChanger(_speedChangerAmount);
+                    currentSpeed = SpeedChanger(_speedChangerAmountPC);
                 }
 
-                if (Input.GetKeyDown(KeyCode.S))
+                if (Input.GetKey(KeyCode.S))
                 {
-                    currentSpeed = SpeedChanger(-_speedChangerAmount);
+                    currentSpeed = SpeedChanger(-_speedChangerAmountPC);
                 }
+
+                transform.Translate(Vector3.back * currentSpeed * 2f * Time.deltaTime);
             }
         }
         #endregion
@@ -89,7 +89,7 @@ public class PlaneMovement : MonoBehaviour
         {
             if (GameController.Instance.CanPlay && !slowing)
             {
-                currentSpeed = SpeedChanger(_speedChangerAmount * (fixedJoystick.Vertical*0.75f));
+                currentSpeed = SpeedChanger(_speedChangerAmountAndroid * (fixedJoystick.Vertical*0.75f));
             }
         }
         #endregion
@@ -122,14 +122,14 @@ public class PlaneMovement : MonoBehaviour
 
         currentSpeed = planeSpeed;
 
-        transform.Translate(Vector3.back * currentSpeed * 2f * Time.deltaTime);
-
         return currentSpeed;
     }
 
     public void RestartLevel()
     {
         planeSpeed = 0f;
+        currentSpeed = 0;
+        planeSpeed = 0;
         this.transform.position = Vector3.zero;
     }
 }
