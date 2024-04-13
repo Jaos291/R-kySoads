@@ -1101,7 +1101,7 @@ MonoBehaviour:
   audioSource: {fileID: 179830646}
   currentClip:
   - {fileID: 8300000, guid: 0dc0eed8ce3ca7048a994dcd8a691610, type: 3}
-  - {fileID: 8300000, guid: dece35851f96e4f44a79f226149e9bed, type: 3}
+  - {fileID: 8300000, guid: 7d123e42cd7ca4547a6c0fadfd7ae333, type: 3}
 --- !u!1 &183332894
 GameObject:
   m_ObjectHideFlags: 0
@@ -5626,7 +5626,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fixedJoystick: {fileID: 521614954}
-  _speedChangerAmountAndroid: 0
 --- !u!1001 &1392474598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9544,6 +9543,7 @@ MonoBehaviour:
   _endOfGame: 0
   _oxygenBurner: 0
   _slower: 0
+  _gasReloader: 0
 --- !u!54 &2094942128
 Rigidbody:
   m_ObjectHideFlags: 0

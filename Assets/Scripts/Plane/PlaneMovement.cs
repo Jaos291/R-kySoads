@@ -8,7 +8,7 @@ public class PlaneMovement : MonoBehaviour
 {
     [SerializeField] private FixedJoystick fixedJoystick;
 
-    [SerializeField] private float _speedChangerAmountAndroid;
+    private float _speedChangerAmountAndroid = 7.5f;
 
     private float _speedChangerAmountPC = 100f;
 
@@ -90,6 +90,8 @@ public class PlaneMovement : MonoBehaviour
             if (GameController.Instance.CanPlay && !slowing)
             {
                 currentSpeed = SpeedChanger(_speedChangerAmountAndroid * (fixedJoystick.Vertical*0.75f));
+
+                transform.Translate(Vector3.back * currentSpeed * 2f * Time.deltaTime);
             }
         }
         #endregion

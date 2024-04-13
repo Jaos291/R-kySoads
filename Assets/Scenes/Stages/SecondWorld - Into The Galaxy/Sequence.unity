@@ -523,7 +523,7 @@ MonoBehaviour:
   audioSource: {fileID: 179830646}
   currentClip:
   - {fileID: 8300000, guid: 0dc0eed8ce3ca7048a994dcd8a691610, type: 3}
-  - {fileID: 8300000, guid: 5cfbc475f3f60ae479d9f846a87cd99e, type: 3}
+  - {fileID: 8300000, guid: bdbc4b04e46294ee495abd92ac3790e0, type: 3}
 --- !u!1 &183332894
 GameObject:
   m_ObjectHideFlags: 0
@@ -2868,8 +2868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d3d5b41267863448624586dfdb70f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixedJoystick: {fileID: 0}
-  _speedChangerAmountAndroid: 20
+  fixedJoystick: {fileID: 1602906605}
 --- !u!1001 &1410464381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3327,6 +3326,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0934131cfb510c4685b386be4e4b9c0, type: 3}
+--- !u!114 &1602906605 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 890088670707845108, guid: f0934131cfb510c4685b386be4e4b9c0, type: 3}
+  m_PrefabInstance: {fileID: 1602906604}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1615413730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4195,6 +4205,7 @@ MonoBehaviour:
   _endOfGame: 0
   _oxygenBurner: 0
   _slower: 0
+  _gasReloader: 0
 --- !u!54 &2094942128
 Rigidbody:
   m_ObjectHideFlags: 0
