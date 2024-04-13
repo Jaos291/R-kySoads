@@ -27,7 +27,12 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         Physics.gravity = new Vector2(0, -9.8f) * GameController.Instance.StageConfigurationSO.gravityScale;
-        fixedJoystick = GameObject.Find("Fixed Joystick").GetComponent<Joystick>();
+
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            fixedJoystick = GameObject.Find("Fixed Joystick").GetComponent<Joystick>();
+        }
+        
     }
 
     private void Update()

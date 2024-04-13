@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5700907461319166994}
   - component: {fileID: 5700907461319166995}
   - component: {fileID: 5700907461319166992}
+  - component: {fileID: 2048917212331862428}
   m_Layer: 5
   m_Name: JumpButton
   m_TagString: Untagged
@@ -134,3 +135,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894cf258c3256da4da6da5c58d1bdb67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2048917212331862428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700907461319166989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301a7184615072f49a2e74fab5ed829f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisGameObject: {fileID: 5700907461319166989}

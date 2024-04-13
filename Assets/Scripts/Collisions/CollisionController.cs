@@ -18,6 +18,8 @@ public class CollisionController : MonoBehaviour
 
     [SerializeField] private bool _slower;
 
+    [SerializeField] private bool _gasReloader;
+
     private enum State
     {
         Normal,
@@ -64,6 +66,9 @@ public class CollisionController : MonoBehaviour
             }else if (_slower)
             {
                 Debug.Log("Slowing!");
+            }else if (_gasReloader)
+            {
+
             }
         }
     }

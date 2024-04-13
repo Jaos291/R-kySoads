@@ -35,4 +35,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stages/First World - The Begining/Irregular.unity
     guid: 2841e699af1e7994b88d5fcee1da3af6
+  - enabled: 1
+    path: Assets/Scenes/Stages/SecondWorld - Into The Galaxy/Sequence.unity
+    guid: 6e40b650f5ebcf84c8f360d5294d271c
+  - enabled: 1
+    path: Assets/Scenes/Stages/SecondWorld - Into The Galaxy/Corona.unity
+    guid: f2761ca892bd5344b8e489e03e610905
+  - enabled: 1
+    path: Assets/Scenes/Stages/SecondWorld - Into The Galaxy/Belt.unity
+    guid: e6ea580f19e80f941a3bd861ac5f9a17
   m_configObjects: {}
