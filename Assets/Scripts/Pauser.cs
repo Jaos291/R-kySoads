@@ -6,6 +6,7 @@ public class Pauser : MonoBehaviour
 {
     private bool isPaused = false;
     private float previousTimeScale;
+    [SerializeField] private GameObject pauseMenu;
 
 
     public void TogglePause()
@@ -25,13 +26,11 @@ public class Pauser : MonoBehaviour
         isPaused = true;
         previousTimeScale = Time.timeScale;
         Time.timeScale = 0f;
-        Debug.Log("Paused!");
     }
 
     public void ResumeGame()
     {
         isPaused = false;
         Time.timeScale = 1f;
-        Debug.Log("Not Paused!");
     }
 }
