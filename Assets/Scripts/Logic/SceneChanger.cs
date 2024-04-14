@@ -31,8 +31,7 @@ public class SceneChanger : MonoBehaviour
     {
         if (_camera.transform.position.x <= 223)
         {
-            float zeroSpeed = 0f;
-            LeanTween.moveX(_camera.gameObject, _camera.transform.position.x - zeroSpeed, 0.5f);
+            LeanTween.moveX(_camera.gameObject, _camera.transform.position.x - 0f, 0.5f);
         }
         else
         {
@@ -50,11 +49,14 @@ public class SceneChanger : MonoBehaviour
 
     public void MoveCameraRight()
     {
-        if (true)
+        if (_camera.transform.position.x >= 3023)
         {
-
+            LeanTween.moveX(_camera.gameObject, _camera.transform.position.x - 0f, 0.5f);
         }
-        LeanTween.moveX(_camera.gameObject, _camera.transform.position.x + moveSpeed, 0.5f);
+        else
+        {
+            LeanTween.moveX(_camera.gameObject, _camera.transform.position.x + moveSpeed, 0.5f);
+        }
         /*Vector3 nextPosition = _camera.transform.position + Vector3.right* moveSpeed * Time.deltaTime;
 
         // Clamp the X-coordinate of the next position to stay within the boundary
