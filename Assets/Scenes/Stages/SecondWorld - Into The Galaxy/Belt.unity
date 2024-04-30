@@ -1101,7 +1101,7 @@ MonoBehaviour:
   audioSource: {fileID: 179830646}
   currentClip:
   - {fileID: 8300000, guid: 0dc0eed8ce3ca7048a994dcd8a691610, type: 3}
-  - {fileID: 8300000, guid: 7d123e42cd7ca4547a6c0fadfd7ae333, type: 3}
+  - {fileID: 8300000, guid: 5c957f20626e844daac72a932b0a57ac, type: 3}
 --- !u!1 &183332894
 GameObject:
   m_ObjectHideFlags: 0
@@ -2508,6 +2508,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6166553990041342763, guid: f0934131cfb510c4685b386be4e4b9c0, type: 3}
+      propertyPath: audioSettings
+      value: 
+      objectReference: {fileID: 852113239}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0934131cfb510c4685b386be4e4b9c0, type: 3}
 --- !u!1 &521614950 stripped
@@ -3398,6 +3402,11 @@ MonoBehaviour:
   rotateTime: 150
   rotateOnY: 1
   rotateOnX: 0
+--- !u!1 &852113239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4295720074432998608, guid: f0934131cfb510c4685b386be4e4b9c0, type: 3}
+  m_PrefabInstance: {fileID: 521614949}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &869029079
 PrefabInstance:
   m_ObjectHideFlags: 0

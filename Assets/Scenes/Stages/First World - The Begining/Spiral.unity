@@ -255,6 +255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6166553990041342763, guid: f0934131cfb510c4685b386be4e4b9c0, type: 3}
+      propertyPath: audioSettings
+      value: 
+      objectReference: {fileID: 22989840}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0934131cfb510c4685b386be4e4b9c0, type: 3}
 --- !u!114 &22989839 stripped
@@ -268,6 +272,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &22989840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4295720074432998608, guid: f0934131cfb510c4685b386be4e4b9c0, type: 3}
+  m_PrefabInstance: {fileID: 22989838}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &52405045 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 881288959416654467, guid: b3a32eaf0c77bd24d845d6f1e14a611d, type: 3}
@@ -3337,6 +3346,7 @@ MonoBehaviour:
   _endOfGame: 0
   _oxygenBurner: 0
   _slower: 0
+  _gasReloader: 0
 --- !u!54 &2094942128
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3379,6 +3389,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fade: {fileID: 0}
+  _camera: {fileID: 0}
+  moveSpeed: 0
 --- !u!1 &2114108740 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2940905992044228657, guid: 71060df4d34694246a66bcb68bff4440, type: 3}
@@ -3397,3 +3409,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fade: {fileID: 0}
+  _camera: {fileID: 0}
+  moveSpeed: 0

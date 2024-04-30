@@ -936,6 +936,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6166553990041342763, guid: f0934131cfb510c4685b386be4e4b9c0, type: 3}
+      propertyPath: audioSettings
+      value: 
+      objectReference: {fileID: 1228248542}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0934131cfb510c4685b386be4e4b9c0, type: 3}
 --- !u!1 &521614950 stripped
@@ -2526,6 +2530,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 17.749, y: 0, z: 0}
+--- !u!1 &1228248542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4295720074432998608, guid: f0934131cfb510c4685b386be4e4b9c0, type: 3}
+  m_PrefabInstance: {fileID: 521614949}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1304125971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4202,6 +4211,7 @@ MonoBehaviour:
   _endOfGame: 0
   _oxygenBurner: 0
   _slower: 0
+  _gasReloader: 0
 --- !u!54 &2094942128
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4244,6 +4254,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fade: {fileID: 0}
+  _camera: {fileID: 0}
+  moveSpeed: 0
 --- !u!1001 &2106804995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4336,3 +4348,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fade: {fileID: 0}
+  _camera: {fileID: 0}
+  moveSpeed: 0

@@ -7,7 +7,17 @@ public class Pauser : MonoBehaviour
     private bool isPaused = false;
     private float previousTimeScale;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject audioSettings;
 
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseMenu.SetActive(!isPaused);
+            TogglePause();
+        }
+    }
 
     public void TogglePause()
     {
@@ -32,5 +42,10 @@ public class Pauser : MonoBehaviour
     {
         isPaused = false;
         Time.timeScale = 1f;
+
+        if (audioSettings)
+        {
+            audioSettings.SetActive(false);
+        }
     }
 }

@@ -3496,7 +3496,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fixedJoystick: {fileID: 1356011304}
-  _speedChangerAmountAndroid: 0
 --- !u!1001 &1373952376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4823,6 +4822,7 @@ MonoBehaviour:
   _endOfGame: 0
   _oxygenBurner: 0
   _slower: 0
+  _gasReloader: 0
 --- !u!54 &2094942128
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5064,5 +5064,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6166553990041342763, guid: f0934131cfb510c4685b386be4e4b9c0, type: 3}
+      propertyPath: audioSettings
+      value: 
+      objectReference: {fileID: 2665270614906667132}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0934131cfb510c4685b386be4e4b9c0, type: 3}
+--- !u!1 &2665270614906667132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4295720074432998608, guid: f0934131cfb510c4685b386be4e4b9c0, type: 3}
+  m_PrefabInstance: {fileID: 2665270614906667131}
+  m_PrefabAsset: {fileID: 0}

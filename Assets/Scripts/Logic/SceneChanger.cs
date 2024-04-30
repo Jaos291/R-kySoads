@@ -11,8 +11,52 @@ public class SceneChanger : MonoBehaviour
 
     private float _maxBoundaryX = 500f;
     private float _minBoundary = 128f;
-    
 
+    private string positionKey = "SavedCameraPosition";
+    private string sceneName;
+
+
+    private void Start()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        sceneName = currentScene.name;
+
+        if (sceneName.Equals("StageSelect") && _camera)
+        {
+            if (PlayerPrefs.HasKey(positionKey))
+            {
+                // Load saved position and rotation
+                Vector3 savedPosition = StringToVector3(PlayerPrefs.GetString(positionKey));
+                // Apply saved position and rotation to the camera
+                _camera.transform.position = savedPosition;
+            }
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (sceneName.Equals("StageSelect") && _camera)
+        {
+            // Save camera position and rotation when leaving the scene
+            PlayerPrefs.SetString(positionKey, Vector3ToString(_camera.transform.position));
+            PlayerPrefs.Save();
+        }
+    }
+
+    private string Vector3ToString(Vector3 vector)
+    {
+        return vector.x + "," + vector.y + "," + vector.z;
+    }
+
+    private Vector3 StringToVector3(string str)
+    {
+        string[] parts = str.Split(',');
+        float x = float.Parse(parts[0]);
+        float y = float.Parse(parts[1]);
+        float z = float.Parse(parts[2]);
+        return new Vector3(x, y, z);
+    }
 
     public void FadeToScene(string sceneToChange)
     {
@@ -38,13 +82,6 @@ public class SceneChanger : MonoBehaviour
             LeanTween.moveX(_camera.gameObject, _camera.transform.position.x - moveSpeed, 0.5f);
         }
         
-        /*Vector3 nextPosition = _camera.transform.position + Vector3.right* moveSpeed * Time.deltaTime;
-
-        // Clamp the X-coordinate of the next position to stay within the boundary
-        nextPosition.x = Mathf.Clamp(nextPosition.x, _minBoundary, _maxBoundaryX);
-
-        // Update the position of the camera
-        _camera.transform.position = nextPosition;*/
     }
 
     public void MoveCameraRight()
@@ -57,12 +94,5 @@ public class SceneChanger : MonoBehaviour
         {
             LeanTween.moveX(_camera.gameObject, _camera.transform.position.x + moveSpeed, 0.5f);
         }
-        /*Vector3 nextPosition = _camera.transform.position + Vector3.right* moveSpeed * Time.deltaTime;
-
-        // Clamp the X-coordinate of the next position to stay within the boundary
-        nextPosition.x = Mathf.Clamp(nextPosition.x, _minBoundary, _maxBoundaryX);
-
-        // Update the position of the camera
-        _camera.transform.position = nextPosition;*/
     }
 }
